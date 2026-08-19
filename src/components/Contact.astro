@@ -1,0 +1,635 @@
+---
+const contacts = [
+    {
+        label: "Email",
+        value: "در صورت تمایل به همکاری، خوشحال می‌شوم در ارتباط باشیم.",
+        href: "mailto:alitoghroliam@gmail.com",
+        icon: "→",
+    },
+    {
+        label: "GitHub",
+        value: "پروژه‌ها و کدهای من",
+        href: "https://github.com/alitoghroli",
+        icon: "↗",
+    },
+    {
+        label: "LinkedIn",
+        value: "پروفایل حرفه‌ای",
+        href: "https://www.linkedin.com/in/alitoghroli/",
+        icon: "↗",
+    },
+];
+---
+
+<section class="contact section" id="contact">
+    <div class="contact-background" aria-hidden="true">
+        <div class="contact-grid"></div>
+        <div class="contact-orbit contact-orbit-one"></div>
+        <div class="contact-orbit contact-orbit-two"></div>
+
+        <div class="contact-node contact-node-one"></div>
+        <div class="contact-node contact-node-two"></div>
+        <div class="contact-node contact-node-three"></div>
+    </div>
+
+    <div class="container">
+        <div class="contact-shell">
+            <div class="contact-top">
+                <div class="section-kicker">
+                    <span>06</span>
+                    <span>ارتباط</span>
+                </div>
+
+                <span class="contact-availability">
+                    <span></span>
+                    Available for opportunities
+                </span>
+            </div>
+
+            <div class="contact-main">
+                <div class="contact-heading">
+                    <span class="contact-eyebrow">LET'S BUILD SOMETHING</span>
+
+                    <h2>
+                        بیایید چیزی
+                        <br />
+                        <span>خوب بسازیم.</span>
+                    </h2>
+                </div>
+
+                <div class="contact-copy">
+                    <p>
+                        اگر به دنبال یک مهندس نرم‌افزار Full-Stack برای ساخت یا
+                        توسعه یک محصول نرم‌افزاری هستید، خوشحال می‌شوم درباره
+                        فرصت همکاری صحبت کنیم.
+                    </p>
+
+                    <a
+                        class="contact-cta"
+                        href="mailto:alitoghroliam@gmail.com"
+                    >
+                        <span>شروع گفتگو</span>
+                        <span class="contact-cta-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-links">
+                {
+                    contacts.map((contact) => (
+                        <a
+                            class="contact-link"
+                            href={contact.href}
+                            target={
+                                contact.href.startsWith("http")
+                                    ? "_blank"
+                                    : undefined
+                            }
+                            rel={
+                                contact.href.startsWith("http")
+                                    ? "noopener noreferrer"
+                                    : undefined
+                            }
+                        >
+                            <div class="contact-link-icon">{contact.icon}</div>
+
+                            <div class="contact-link-content">
+                                <span>{contact.label}</span>
+                                <strong>{contact.value}</strong>
+                            </div>
+
+                            <div class="contact-link-arrow">↗</div>
+                        </a>
+                    ))
+                }
+            </div>
+
+            <footer class="contact-footer">
+                <div class="footer-brand">
+                    <span class="footer-mark">AT</span>
+
+                    <div>
+                        <strong>علی طغرلی</strong>
+                        <span>Full-Stack Software Engineer</span>
+                    </div>
+                </div>
+
+                <div class="footer-meta">
+                    <span>کرمان، ایران</span>
+                    <span class="footer-separator"></span>
+                    <span>© ۱۴۰۵</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        position: relative;
+        overflow: hidden;
+
+        padding-top: 8rem;
+        padding-bottom: 3rem;
+    }
+
+    .contact-background {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+    }
+
+    .contact-grid {
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.016) 1px,
+                transparent 1px
+            );
+
+        background-size: 5rem 5rem;
+
+        mask-image: linear-gradient(
+            to bottom,
+            transparent,
+            black 25%,
+            black 75%,
+            transparent
+        );
+    }
+
+    .contact-orbit {
+        position: absolute;
+
+        border: 1px solid rgba(94, 230, 168, 0.07);
+        border-radius: 50%;
+
+        transform: rotate(-20deg);
+    }
+
+    .contact-orbit-one {
+        top: -16rem;
+        right: -10rem;
+
+        width: 42rem;
+        height: 42rem;
+    }
+
+    .contact-orbit-two {
+        top: -11rem;
+        right: -5rem;
+
+        width: 32rem;
+        height: 32rem;
+
+        border-color: rgba(94, 230, 168, 0.04);
+    }
+
+    .contact-node {
+        position: absolute;
+
+        width: 0.4rem;
+        height: 0.4rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+
+        box-shadow: 0 0 0 5px var(--color-accent-soft);
+    }
+
+    .contact-node-one {
+        top: 16rem;
+        right: 16%;
+    }
+
+    .contact-node-two {
+        top: 26rem;
+        right: 33%;
+
+        opacity: 0.45;
+    }
+
+    .contact-node-three {
+        top: 9rem;
+        right: 48%;
+
+        opacity: 0.25;
+    }
+
+    .contact-shell {
+        position: relative;
+        z-index: 1;
+
+        overflow: hidden;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.008)
+        );
+
+        border: 1px solid var(--color-border);
+        border-radius: 1rem;
+
+        box-shadow:
+            0 2rem 6rem rgba(0, 0, 0, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    }
+
+    .contact-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 1.5rem 2rem;
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .section-kicker > span:first-child {
+        display: grid;
+        place-items: center;
+
+        width: 1.7rem;
+        height: 1.7rem;
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.12);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.6rem;
+    }
+
+    .contact-availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    .contact-availability > span {
+        width: 0.4rem;
+        height: 0.4rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+
+        box-shadow: 0 0 0 4px var(--color-accent-soft);
+    }
+
+    .contact-main {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+        gap: 5rem;
+
+        padding: 5rem 4rem 4.5rem;
+    }
+
+    .contact-eyebrow {
+        display: block;
+
+        margin-bottom: 1.25rem;
+
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.55rem;
+        letter-spacing: 0.08em;
+    }
+
+    .contact-heading h2 {
+        margin: 0;
+
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.055em;
+    }
+
+    .contact-heading h2 span {
+        color: var(--color-text-muted);
+    }
+
+    .contact-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        padding-bottom: 0.5rem;
+    }
+
+    .contact-copy p {
+        max-width: 28rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.78rem;
+        line-height: 2;
+    }
+
+    .contact-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+
+        width: fit-content;
+        min-width: 12rem;
+
+        margin-top: 2rem;
+        padding: 0.9rem 1rem;
+
+        color: var(--color-background);
+
+        background: var(--color-accent);
+        border: 1px solid var(--color-accent);
+        border-radius: 0.55rem;
+
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-decoration: none;
+
+        transition:
+            transform 250ms ease,
+            box-shadow 250ms ease,
+            background-color 250ms ease;
+    }
+
+    .contact-cta:hover {
+        background: #73efb4;
+
+        box-shadow: 0 0.8rem 2.5rem rgba(94, 230, 168, 0.15);
+
+        transform: translateY(-3px);
+    }
+
+    .contact-cta-arrow {
+        font-size: 1rem;
+    }
+
+    .contact-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .contact-link {
+        display: grid;
+        grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 1rem;
+
+        min-height: 6.5rem;
+        padding: 1rem 1.5rem;
+
+        color: inherit;
+        text-decoration: none;
+
+        border-left: 1px solid var(--color-border);
+
+        transition:
+            background-color 250ms ease,
+            transform 250ms ease;
+    }
+
+    .contact-link:first-child {
+        border-left: 0;
+    }
+
+    .contact-link:hover {
+        background: rgba(255, 255, 255, 0.018);
+    }
+
+    .contact-link-icon {
+        display: grid;
+        place-items: center;
+
+        width: 2rem;
+        height: 2rem;
+
+        color: var(--color-accent);
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.1);
+        border-radius: 0.5rem;
+
+        font-size: 0.8rem;
+    }
+
+    .contact-link-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        min-width: 0;
+    }
+
+    .contact-link-content span {
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .contact-link-content strong {
+        overflow: hidden;
+
+        color: var(--color-text-secondary);
+
+        font-size: 0.62rem;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .contact-link-arrow {
+        color: var(--color-text-muted);
+
+        font-size: 0.8rem;
+
+        transition:
+            color 200ms ease,
+            transform 200ms ease;
+    }
+
+    .contact-link:hover .contact-link-arrow {
+        color: var(--color-accent);
+
+        transform: translate(2px, -2px);
+    }
+
+    .contact-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 1.5rem 2rem;
+    }
+
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .footer-mark {
+        display: grid;
+        place-items: center;
+
+        width: 2rem;
+        height: 2rem;
+
+        color: var(--color-accent);
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.1);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.55rem;
+        font-weight: 600;
+    }
+
+    .footer-brand div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .footer-brand strong {
+        font-size: 0.62rem;
+        font-weight: 600;
+    }
+
+    .footer-brand span:last-child {
+        color: var(--color-text-muted);
+
+        font-size: 0.48rem;
+    }
+
+    .footer-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.48rem;
+    }
+
+    .footer-separator {
+        width: 0.2rem;
+        height: 0.2rem;
+
+        background: var(--color-border-strong);
+        border-radius: 50%;
+    }
+
+    @media (max-width: 900px) {
+        .contact {
+            padding-top: 6rem;
+        }
+
+        .contact-main {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+
+            padding: 4rem 2.5rem;
+        }
+
+        .contact-links {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-link {
+            border-left: 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .contact-link:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .contact {
+            padding-top: 5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .contact-shell {
+            border-radius: 0.75rem;
+        }
+
+        .contact-top {
+            padding: 1rem 1.2rem;
+        }
+
+        .contact-availability {
+            font-size: 0.45rem;
+        }
+
+        .contact-main {
+            gap: 2.5rem;
+
+            padding: 3rem 1.5rem;
+        }
+
+        .contact-heading h2 {
+            font-size: 2.8rem;
+        }
+
+        .contact-copy p {
+            font-size: 0.7rem;
+        }
+
+        .contact-cta {
+            width: 100%;
+        }
+
+        .contact-link {
+            min-height: 5.5rem;
+
+            padding: 1rem;
+        }
+
+        .contact-footer {
+            display: block;
+
+            padding: 1.25rem;
+        }
+
+        .footer-meta {
+            margin-top: 1rem;
+        }
+    }
+</style>

@@ -1,0 +1,699 @@
+---
+const skillGroups = [
+    {
+        number: "01",
+        title: "Core Engineering",
+        description:
+            "ابزارها و تکنولوژی‌هایی که بخش اصلی تجربه توسعه من را تشکیل می‌دهند.",
+        skills: [
+            "TypeScript",
+            "JavaScript",
+            "Node.js",
+            "React",
+            "Next.js",
+            "NestJS",
+        ],
+        featured: true,
+    },
+    {
+        number: "02",
+        title: "Backend & Data",
+        description:
+            "ساخت API، طراحی دیتابیس و پیاده‌سازی سیستم‌های قابل اتکا.",
+        skills: [
+            "PostgreSQL",
+            "MySQL",
+            "Drizzle ORM",
+            "REST API",
+            "RBAC",
+            "PostgreSQL RLS",
+        ],
+        featured: true,
+    },
+    {
+        number: "03",
+        title: "Architecture",
+        description: "تمرکز بر ساخت سیستم‌های قابل نگهداری، توسعه‌پذیر و امن.",
+        skills: [
+            "SaaS",
+            "Multi-Tenant",
+            "Software Architecture",
+            "DDD",
+            "Tenant Isolation",
+            "Authorization",
+        ],
+        featured: true,
+    },
+    {
+        number: "04",
+        title: "Infrastructure",
+        description:
+            "ابزارهای مورد استفاده برای توسعه، اجرا و استقرار نرم‌افزار.",
+        skills: [
+            "Docker",
+            "Docker Compose",
+            "Git",
+            "Linux",
+            "GitHub Actions",
+            "CI/CD",
+        ],
+        featured: false,
+    },
+    {
+        number: "05",
+        title: "Testing & Quality",
+        description: "تست و بررسی رفتار سیستم در لایه‌های مختلف.",
+        skills: [
+            "Jest",
+            "Playwright",
+            "Unit Testing",
+            "Integration Testing",
+            "E2E Testing",
+        ],
+        featured: false,
+    },
+    {
+        number: "06",
+        title: "Additional Experience",
+        description:
+            "تکنولوژی‌هایی که در پروژه‌های مختلف با آن‌ها کار کرده‌ام.",
+        skills: [
+            "C#",
+            "C++",
+            "Python",
+            "PHP",
+            "Laravel",
+            "GraphQL",
+            "WordPress",
+            "Kubernetes",
+            "n8n",
+            "LLM Integration",
+        ],
+        featured: false,
+    },
+];
+---
+
+<section class="skills section" id="skills">
+    <div class="skills-grid-background" aria-hidden="true">
+        <div class="skills-grid"></div>
+        <div class="skills-glow skills-glow-one"></div>
+        <div class="skills-glow skills-glow-two"></div>
+    </div>
+
+    <div class="container">
+        <header class="section-header">
+            <div>
+                <div class="section-kicker">
+                    <span>05</span>
+                    <span>مهارت‌ها</span>
+                </div>
+
+                <h2>
+                    ابزارها،
+                    <br />
+                    طرز فکر،
+                    <br />
+                    تجربه.
+                </h2>
+            </div>
+
+            <div class="section-intro">
+                <p>
+                    تلاش می‌کنم تکنولوژی را صرفاً به‌عنوان ابزار نبینم؛ انتخاب
+                    ابزار باید در خدمت حل مسئله و ساخت نرم‌افزار قابل نگهداری
+                    باشد.
+                </p>
+
+                <div class="skill-focus">
+                    <span class="skill-focus-dot"></span>
+                    <span>تمرکز فعلی</span>
+                    <strong>SaaS · Multi-Tenant · Full-Stack</strong>
+                </div>
+            </div>
+        </header>
+
+        <div class="skills-layout">
+            <div class="skills-primary">
+                {
+                    skillGroups
+                        .filter((group) => group.featured)
+                        .map((group) => (
+                            <article class="skill-card skill-card-featured">
+                                <div class="skill-card-top">
+                                    <span class="skill-number">
+                                        {group.number}
+                                    </span>
+
+                                    <span
+                                        class="skill-card-mark"
+                                        aria-hidden="true"
+                                    >
+                                        <span />
+                                        <span />
+                                        <span />
+                                    </span>
+                                </div>
+
+                                <div class="skill-card-content">
+                                    <h3>{group.title}</h3>
+                                    <p>{group.description}</p>
+
+                                    <div class="skill-list">
+                                        {group.skills.map((skill, index) => (
+                                            <span
+                                                class:list={{
+                                                    prominent: index < 2,
+                                                }}
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </article>
+                        ))
+                }
+            </div>
+
+            <div class="skills-secondary">
+                {
+                    skillGroups
+                        .filter((group) => !group.featured)
+                        .map((group) => (
+                            <article class="skill-card skill-card-secondary">
+                                <div class="skill-card-top">
+                                    <span class="skill-number">
+                                        {group.number}
+                                    </span>
+                                    <span class="skill-secondary-line" />
+                                </div>
+
+                                <div class="skill-card-content">
+                                    <h3>{group.title}</h3>
+                                    <p>{group.description}</p>
+
+                                    <div class="skill-list">
+                                        {group.skills.map((skill) => (
+                                            <span>{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </article>
+                        ))
+                }
+            </div>
+        </div>
+
+        <div class="skills-footer">
+            <div class="skills-footer-line"></div>
+
+            <div class="skills-footer-content">
+                <span>01 — 06</span>
+                <p>
+                    این فهرست نمایانگر ابزارها و حوزه‌هایی است که در مسیر تجربه
+                    حرفه‌ای و پروژه‌های شخصی با آن‌ها کار کرده‌ام.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .skills {
+        position: relative;
+        overflow: hidden;
+
+        padding-top: 9rem;
+        padding-bottom: 10rem;
+    }
+
+    .skills-grid-background {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+    }
+
+    .skills-grid {
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.018) 1px,
+                transparent 1px
+            );
+
+        background-size: 5rem 5rem;
+
+        mask-image: linear-gradient(
+            to bottom,
+            transparent,
+            black 15%,
+            black 80%,
+            transparent
+        );
+
+        opacity: 0.5;
+    }
+
+    .skills-glow {
+        position: absolute;
+
+        width: 28rem;
+        height: 28rem;
+
+        border-radius: 50%;
+        filter: blur(100px);
+
+        opacity: 0.25;
+    }
+
+    .skills-glow-one {
+        top: 15rem;
+        right: -16rem;
+
+        background: rgba(94, 230, 168, 0.05);
+    }
+
+    .skills-glow-two {
+        bottom: 8rem;
+        left: -18rem;
+
+        background: rgba(90, 120, 255, 0.035);
+    }
+
+    .section-header {
+        position: relative;
+        z-index: 1;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 24rem;
+        align-items: end;
+        gap: 4rem;
+
+        margin-bottom: 6rem;
+    }
+
+    .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        margin-bottom: 1.5rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .section-kicker > span:first-child {
+        display: grid;
+        place-items: center;
+
+        width: 1.7rem;
+        height: 1.7rem;
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.12);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.6rem;
+    }
+
+    .section-header h2 {
+        margin: 0;
+
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+    }
+
+    .section-intro {
+        padding-bottom: 0.3rem;
+    }
+
+    .section-intro > p {
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.78rem;
+        line-height: 2;
+    }
+
+    .skill-focus {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+
+        border-top: 1px solid var(--color-border);
+
+        color: var(--color-text-muted);
+
+        font-size: 0.58rem;
+    }
+
+    .skill-focus-dot {
+        width: 0.4rem;
+        height: 0.4rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+
+        box-shadow: 0 0 0 5px var(--color-accent-soft);
+    }
+
+    .skill-focus strong {
+        color: var(--color-text-secondary);
+
+        font-weight: 500;
+    }
+
+    .skills-layout {
+        position: relative;
+        z-index: 1;
+    }
+
+    .skills-primary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        border-top: 1px solid var(--color-border);
+        border-right: 1px solid var(--color-border);
+    }
+
+    .skill-card {
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.008);
+
+        border-left: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+
+        transition:
+            background-color 300ms ease,
+            transform 300ms ease,
+            border-color 300ms ease;
+    }
+
+    .skill-card::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background: radial-gradient(
+            circle at 85% 15%,
+            rgba(94, 230, 168, 0.055),
+            transparent 35%
+        );
+
+        opacity: 0;
+
+        transition: opacity 400ms ease;
+
+        pointer-events: none;
+    }
+
+    .skill-card:hover {
+        background: rgba(255, 255, 255, 0.018);
+
+        border-color: rgba(94, 230, 168, 0.12);
+
+        transform: translateY(-3px);
+    }
+
+    .skill-card:hover::after {
+        opacity: 1;
+    }
+
+    .skill-card-featured {
+        min-height: 22rem;
+
+        padding: 2rem;
+    }
+
+    .skill-card-top {
+        position: relative;
+        z-index: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .skill-number {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.55rem;
+    }
+
+    .skill-card-mark {
+        display: grid;
+        grid-template-columns: repeat(3, 0.25rem);
+        gap: 0.2rem;
+
+        transform: rotate(30deg);
+    }
+
+    .skill-card-mark span {
+        display: block;
+
+        width: 0.25rem;
+        height: 0.25rem;
+
+        background: var(--color-border-strong);
+        border-radius: 50%;
+    }
+
+    .skill-card-mark span:first-child {
+        background: var(--color-accent);
+    }
+
+    .skill-card-content {
+        position: relative;
+        z-index: 1;
+
+        margin-top: 3rem;
+    }
+
+    .skill-card-content h3 {
+        margin: 0 0 0.75rem;
+
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+
+    .skill-card-content p {
+        max-width: 19rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.65rem;
+        line-height: 1.9;
+    }
+
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+
+        margin-top: 2rem;
+    }
+
+    .skill-list span {
+        padding: 0.45rem 0.6rem;
+
+        color: var(--color-text-muted);
+
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--color-border);
+        border-radius: 0.4rem;
+
+        font-family: monospace;
+        font-size: 0.52rem;
+
+        transition:
+            color 200ms ease,
+            border-color 200ms ease,
+            background-color 200ms ease;
+    }
+
+    .skill-list span.prominent {
+        color: var(--color-text-secondary);
+    }
+
+    .skill-card:hover .skill-list span.prominent {
+        color: var(--color-accent);
+
+        background: var(--color-accent-soft);
+        border-color: rgba(94, 230, 168, 0.14);
+    }
+
+    .skills-secondary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        border-right: 1px solid var(--color-border);
+    }
+
+    .skill-card-secondary {
+        display: grid;
+        grid-template-columns: 3rem minmax(0, 1fr);
+        gap: 1.5rem;
+
+        min-height: 14rem;
+
+        padding: 1.8rem 2rem;
+    }
+
+    .skill-card-secondary .skill-card-content {
+        margin-top: 0;
+    }
+
+    .skill-card-secondary .skill-card-content h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-card-secondary .skill-card-content p {
+        max-width: 24rem;
+    }
+
+    .skill-card-secondary .skill-list {
+        margin-top: 1.2rem;
+    }
+
+    .skill-secondary-line {
+        display: block;
+
+        width: 1.5rem;
+        height: 1px;
+        margin-top: 0.35rem;
+
+        background: var(--color-border-strong);
+    }
+
+    .skills-footer {
+        position: relative;
+        z-index: 1;
+
+        margin-top: 4rem;
+    }
+
+    .skills-footer-line {
+        width: 100%;
+        height: 1px;
+
+        background: var(--color-border);
+    }
+
+    .skills-footer-content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
+
+        padding-top: 1.25rem;
+
+        color: var(--color-text-muted);
+    }
+
+    .skills-footer-content > span {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.55rem;
+    }
+
+    .skills-footer-content p {
+        max-width: 26rem;
+
+        margin: 0;
+
+        font-size: 0.58rem;
+        line-height: 1.8;
+    }
+
+    @media (max-width: 1000px) {
+        .skills {
+            padding-top: 7rem;
+            padding-bottom: 8rem;
+        }
+
+        .section-header {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .skills-primary {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .skill-card-featured:last-child {
+            grid-column: span 2;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .skills {
+            padding-top: 6rem;
+            padding-bottom: 7rem;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+        }
+
+        .skills-primary,
+        .skills-secondary {
+            grid-template-columns: 1fr;
+
+            border-right: 1px solid var(--color-border);
+        }
+
+        .skill-card-featured:last-child {
+            grid-column: auto;
+        }
+
+        .skill-card-featured {
+            min-height: auto;
+
+            padding: 1.5rem;
+        }
+
+        .skill-card-secondary {
+            grid-template-columns: 2rem minmax(0, 1fr);
+
+            min-height: auto;
+
+            padding: 1.5rem;
+        }
+
+        .skills-footer-content {
+            display: block;
+        }
+
+        .skills-footer-content p {
+            margin-top: 0.8rem;
+        }
+    }
+</style>

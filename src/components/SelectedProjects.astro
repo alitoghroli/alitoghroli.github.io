@@ -1,0 +1,735 @@
+---
+const projects = [
+    {
+        number: "01",
+        featured: true,
+        status: "در حال توسعه",
+        period: "۱۴۰۵ — اکنون",
+        type: "Personal Product",
+        title: "Attariyar",
+        subtitle: "زیرساخت SaaS برای کسب‌وکارهای حوزه گیاهان دارویی",
+        description:
+            "یک محصول SaaS که با هدف ایجاد زیرساختی برای مدیریت و توسعه کسب‌وکارهای حوزه گیاهان دارویی در حال توسعه است. MVP فعلی بر مدیریت عطاری، شعبه و محصولات و ارائه یک Storefront عمومی تمرکز دارد.",
+        stack: [
+            "NestJS",
+            "Next.js",
+            "PostgreSQL",
+            "Drizzle ORM",
+            "Docker",
+            "GitHub Actions",
+        ],
+        capabilities: [
+            "Multi-Tenant Architecture",
+            "PostgreSQL RLS",
+            "RBAC & Permissions",
+            "Public Storefront",
+            "Product Management",
+            "AI Discovery",
+        ],
+        architecture: {
+            label: "Architecture",
+            items: ["Shared Database", "Shared Schema", "Tenant Isolation"],
+        },
+        link: {
+            label: "مشاهده محصول",
+            href: "https://attariyar.ir",
+        },
+    },
+    {
+        number: "02",
+        featured: false,
+        status: "Offline",
+        period: "۱۴۰۱ — ۱۴۰۳",
+        type: "Personal Project",
+        title: "پلتفرم انتشار و پخش آنلاین محتوا",
+        subtitle: "پلتفرم انتشار موسیقی، فیلم و سریال",
+        description:
+            "ساخت و راه‌اندازی یک پلتفرم واقعی برای انتشار و پخش آنلاین محتوای موسیقی، فیلم و سریال. پروژه در نهایت به دلایل شخصی Offline شد.",
+        stack: ["WordPress", "Vite", "SSG", "WPGraphQL"],
+        capabilities: [
+            "Online Streaming",
+            "Music Publishing",
+            "Subtitle Support",
+            "Content Management",
+        ],
+        architecture: null,
+        link: null,
+    },
+    {
+        number: "03",
+        featured: false,
+        status: "Offline",
+        period: "۱۴۰۱ — ۱۴۰۵",
+        type: "Personal Project",
+        title: "MBTI Chat",
+        subtitle: "ربات چت ناشناس بر اساس تیپ‌های MBTI",
+        description:
+            "طراحی و توسعه یک ربات Telegram برای ایجاد ارتباط ناشناس میان کاربران بر اساس تیپ‌های شخصیتی MBTI. سرویس تا سال ۱۴۰۵ فعال بود.",
+        stack: ["NestJS", "MySQL", "Telegram"],
+        capabilities: ["Anonymous Chat", "MBTI Matching", "Telegram Bot"],
+        architecture: null,
+        link: null,
+    },
+];
+---
+
+<section class="projects section" id="projects">
+    <div class="projects-background" aria-hidden="true">
+        <div class="projects-orb projects-orb-one"></div>
+        <div class="projects-orb projects-orb-two"></div>
+    </div>
+
+    <div class="container">
+        <header class="section-header">
+            <div>
+                <div class="section-kicker">
+                    <span>03</span>
+                    <span>پروژه‌ها</span>
+                </div>
+
+                <h2>
+                    چیزهایی که
+                    <br />
+                    ساخته‌ام.
+                </h2>
+            </div>
+
+            <p class="section-description">
+                پروژه‌ها فقط خروجی نهایی نیستند؛ بخشی از مسیر یادگیری، حل مسئله
+                و تجربه ساخت سیستم‌های واقعی هستند.
+            </p>
+        </header>
+
+        <div class="projects-list">
+            {
+                projects.map((project) => (
+                    <article
+                        class:list={[
+                            "project",
+                            { "project-featured": project.featured },
+                        ]}
+                    >
+                        <div class="project-number">
+                            <span>{project.number}</span>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-title-block">
+                                    <div class="project-meta">
+                                        <span class="project-period">
+                                            {project.period}
+                                        </span>
+
+                                        <span class="project-type">
+                                            {project.type}
+                                        </span>
+
+                                        <span
+                                            class:list={[
+                                                "project-status",
+                                                {
+                                                    "project-status-active":
+                                                        project.status ===
+                                                        "در حال توسعه",
+                                                },
+                                            ]}
+                                        >
+                                            <i />
+                                            {project.status}
+                                        </span>
+                                    </div>
+
+                                    <h3>{project.title}</h3>
+
+                                    <p class="project-subtitle">
+                                        {project.subtitle}
+                                    </p>
+                                </div>
+
+                                {project.link && (
+                                    <a
+                                        class="project-link"
+                                        href={project.link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <span>{project.link.label}</span>
+                                        <span class="project-link-icon">↗</span>
+                                    </a>
+                                )}
+                            </div>
+
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>{project.description}</p>
+
+                                    <div class="stack">
+                                        {project.stack.map((technology) => (
+                                            <span>{technology}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div class="project-capabilities">
+                                    <div class="capabilities-label">
+                                        <span />
+                                        <span>تمرکز فنی</span>
+                                    </div>
+
+                                    <ul>
+                                        {project.capabilities.map(
+                                            (capability) => (
+                                                <li>
+                                                    <span>+</span>
+                                                    <span>{capability}</span>
+                                                </li>
+                                            ),
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {project.architecture && (
+                                <div class="architecture">
+                                    <div class="architecture-label">
+                                        <span>Architecture</span>
+                                        <span class="architecture-line" />
+                                    </div>
+
+                                    <div class="architecture-items">
+                                        {project.architecture.items.map(
+                                            (item, index) => (
+                                                <div class="architecture-item">
+                                                    <span class="architecture-index">
+                                                        0{index + 1}
+                                                    </span>
+
+                                                    <span>{item}</span>
+                                                </div>
+                                            ),
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects {
+        position: relative;
+        overflow: hidden;
+
+        padding-top: 8rem;
+        padding-bottom: 10rem;
+    }
+
+    .projects-background {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+    }
+
+    .projects-orb {
+        position: absolute;
+
+        border-radius: 50%;
+
+        filter: blur(80px);
+
+        opacity: 0.35;
+    }
+
+    .projects-orb-one {
+        top: 20rem;
+        left: -18rem;
+
+        width: 35rem;
+        height: 35rem;
+
+        background: rgba(94, 230, 168, 0.045);
+    }
+
+    .projects-orb-two {
+        right: -15rem;
+        bottom: 10rem;
+
+        width: 30rem;
+        height: 30rem;
+
+        background: rgba(100, 130, 255, 0.035);
+    }
+
+    .section-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 22rem;
+        align-items: end;
+        gap: 4rem;
+
+        margin-bottom: 6rem;
+    }
+
+    .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        margin-bottom: 1.5rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .section-kicker > span:first-child {
+        display: grid;
+        place-items: center;
+
+        width: 1.7rem;
+        height: 1.7rem;
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.12);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.6rem;
+    }
+
+    .section-header h2 {
+        margin: 0;
+
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+    }
+
+    .section-description {
+        max-width: 20rem;
+
+        margin: 0;
+        padding-bottom: 0.4rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.78rem;
+        line-height: 2;
+    }
+
+    .projects-list {
+        border-top: 1px solid var(--color-border);
+    }
+
+    .project {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 5rem minmax(0, 1fr);
+        gap: 2rem;
+
+        padding: 3.5rem 0;
+
+        border-bottom: 1px solid var(--color-border);
+
+        transition: padding 300ms ease;
+    }
+
+    .project::before {
+        content: "";
+
+        position: absolute;
+        inset: 0 -2rem;
+
+        background:
+            radial-gradient(
+                circle at 85% 25%,
+                rgba(94, 230, 168, 0.045),
+                transparent 30%
+            ),
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.012),
+                transparent
+            );
+
+        opacity: 0;
+
+        transition: opacity 400ms ease;
+
+        pointer-events: none;
+    }
+
+    .project:hover::before {
+        opacity: 1;
+    }
+
+    .project-featured {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .project-number {
+        position: relative;
+        z-index: 1;
+
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.65rem;
+    }
+
+    .project-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .project-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .project-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+
+        margin-bottom: 1.25rem;
+    }
+
+    .project-period,
+    .project-type {
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.58rem;
+    }
+
+    .project-type {
+        padding-right: 0.8rem;
+
+        border-right: 1px solid var(--color-border);
+
+        font-family: inherit;
+    }
+
+    .project-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.58rem;
+    }
+
+    .project-status i {
+        display: block;
+
+        width: 0.35rem;
+        height: 0.35rem;
+
+        background: currentColor;
+        border-radius: 50%;
+    }
+
+    .project-status-active {
+        color: var(--color-accent);
+    }
+
+    .project-status-active i {
+        box-shadow: 0 0 0 4px var(--color-accent-soft);
+    }
+
+    .project-title-block h3 {
+        margin: 0 0 0.5rem;
+
+        font-size: clamp(1.65rem, 3vw, 2.6rem);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+    }
+
+    .project-subtitle {
+        margin: 0;
+
+        color: var(--color-text-secondary);
+
+        font-size: 0.82rem;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+
+        padding: 0.7rem 0.9rem;
+
+        color: var(--color-text);
+
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--color-border);
+        border-radius: 0.55rem;
+
+        font-size: 0.65rem;
+        text-decoration: none;
+
+        transition:
+            color 200ms ease,
+            border-color 200ms ease,
+            background-color 200ms ease,
+            transform 200ms ease;
+    }
+
+    .project-link:hover {
+        color: var(--color-accent);
+
+        background: var(--color-accent-soft);
+        border-color: rgba(94, 230, 168, 0.2);
+
+        transform: translateY(-2px);
+    }
+
+    .project-link-icon {
+        font-size: 0.9rem;
+    }
+
+    .project-details {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 17rem;
+        gap: 5rem;
+
+        margin-top: 3rem;
+    }
+
+    .project-description p {
+        max-width: 44rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.78rem;
+        line-height: 2;
+    }
+
+    .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+
+        margin-top: 1.5rem;
+    }
+
+    .stack span {
+        padding: 0.4rem 0.65rem;
+
+        color: var(--color-text-muted);
+
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+
+        font-family: monospace;
+        font-size: 0.55rem;
+    }
+
+    .project-capabilities {
+        padding-right: 1.5rem;
+
+        border-right: 1px solid var(--color-border);
+    }
+
+    .capabilities-label {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+
+        margin-bottom: 1rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.6rem;
+    }
+
+    .capabilities-label > span:first-child {
+        width: 0.35rem;
+        height: 0.35rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+    }
+
+    .project-capabilities ul {
+        display: grid;
+        gap: 0.65rem;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .project-capabilities li {
+        display: flex;
+        gap: 0.5rem;
+
+        color: var(--color-text-secondary);
+
+        font-size: 0.63rem;
+    }
+
+    .project-capabilities li > span:first-child {
+        color: var(--color-accent);
+
+        font-family: monospace;
+    }
+
+    .architecture {
+        display: grid;
+        grid-template-columns: 8rem minmax(0, 1fr);
+        gap: 2rem;
+
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+
+        border-top: 1px solid var(--color-border);
+    }
+
+    .architecture-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.55rem;
+    }
+
+    .architecture-line {
+        width: 1.5rem;
+        height: 1px;
+
+        background: var(--color-border);
+    }
+
+    .architecture-items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .architecture-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        padding: 0.85rem;
+
+        background: rgba(255, 255, 255, 0.014);
+        border: 1px solid var(--color-border);
+        border-radius: 0.55rem;
+    }
+
+    .architecture-index {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.5rem;
+    }
+
+    .architecture-item > span:last-child {
+        color: var(--color-text-secondary);
+
+        font-size: 0.62rem;
+    }
+
+    @media (max-width: 900px) {
+        .projects {
+            padding-top: 6rem;
+            padding-bottom: 7rem;
+        }
+
+        .section-header {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+
+            margin-bottom: 4rem;
+        }
+
+        .section-description {
+            max-width: 32rem;
+        }
+
+        .project {
+            grid-template-columns: 2rem minmax(0, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-details {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-capabilities {
+            padding-right: 0;
+            padding-top: 1.5rem;
+
+            border-right: 0;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .architecture {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .projects {
+            padding-top: 5rem;
+            padding-bottom: 6rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+        }
+
+        .project,
+        .project-featured {
+            grid-template-columns: 1.5rem minmax(0, 1fr);
+            gap: 1rem;
+
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .project-header {
+            display: block;
+        }
+
+        .project-link {
+            margin-top: 1.5rem;
+        }
+
+        .project-details {
+            margin-top: 2rem;
+        }
+
+        .architecture-items {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

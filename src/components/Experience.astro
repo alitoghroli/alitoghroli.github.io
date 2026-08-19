@@ -1,0 +1,714 @@
+---
+const experiences = [
+    {
+        number: "01",
+        period: "۱۳۹۹ — ۱۴۰۱",
+        role: "Full-Stack Software Engineer",
+        company: "شرکت مهندسی نرم‌افزار زراوند کرمان",
+        type: "تجربه حرفه‌ای",
+        intro: "شروع فعالیت حرفه‌ای در تیم توسعه نرم‌افزار؛ از توسعه Frontend با React.js تا توسعه کامل یک محصول Full-Stack.",
+        technologies: ["React.js", "NestJS", "MySQL", "Jest", "Scrum"],
+        points: [
+            "شروع فعالیت با تمرکز بر توسعه Frontend با React.js و سپس گسترش مسئولیت‌ها به سمت توسعه Full-Stack.",
+            "یادگیری و استفاده از اصول Clean Code، معماری نرم‌افزار و مدیریت چرخه توسعه نرم‌افزار.",
+            "نوشتن تست برای کامپوننت‌ها با Jest و کار در فرآیند توسعه تیمی مبتنی بر Branch و Pull Request.",
+            "طراحی و توسعه کامل پروژه تایربان از صفر؛ سامانه‌ای برای مدیریت تایرهای ماشین‌های معدن.",
+            "توسعه Backend پروژه با NestJS و کار با MySQL در کنار توسعه Frontend.",
+        ],
+        project: {
+            label: "پروژه اصلی",
+            name: "تایربان",
+            description:
+                "سامانه مدیریت تایرهای ماشین‌های معدن برای شرکت معدن مس سرچشمه.",
+        },
+    },
+    {
+        number: "02",
+        period: "۱۴۰۳ — ۱۴۰۵",
+        role: "Software Engineer",
+        company: "نیروی زمینی ارتش جمهوری اسلامی ایران",
+        type: "برنامه‌نویس وظیفه",
+        intro: "فعالیت به‌عنوان برنامه‌نویس وظیفه و کار روی سامانه‌های داخلی، با تمرکز بر رفع خطا، نگهداری، مستندسازی و توسعه قابلیت‌های جدید.",
+        technologies: ["Laravel", "C#", "Microsoft Access"],
+        points: [
+            "بررسی و رفع Bugهای یک سامانه مدیریت مرخصی که پیش‌تر با Laravel توسعه داده شده بود.",
+            "شناسایی و رفع مشکل ذخیره‌سازی نادرست تاریخ‌های شمسی در Database که باعث خطا در روزهای ۳۰ و ۳۱ برخی ماه‌ها می‌شد.",
+            "رفع Bugهای متعدد و بهبود ساختار و قابلیت نگهداری کد.",
+            "مستندسازی بخش‌های مهم سیستم و اضافه کردن Featureهای جدید بنا بر نیاز مجموعه.",
+            "طراحی و توسعه یک سامانه جدید ثبت مرخصی با C# و Microsoft Access با هدف کاهش وابستگی به زیرساخت‌های خارجی و قدیمی.",
+        ],
+        project: null,
+    },
+];
+
+const sideProjects = [
+    {
+        title: "پروژه املاک",
+        period: "۱۴۰۴ — ۱۴۰۵",
+        description:
+            "همکاری مستقل و محدود در دوره‌های مرخصی برای توسعه یک سیستم نمایش فایل‌های املاک؛ شامل جمع‌آوری اطلاعات، ساخت WordPress و استقرار روی VPS شخصی.",
+        stack: ["WordPress", "Kubernetes", "VPS"],
+    },
+];
+---
+
+<section class="experience section" id="experience">
+    <div class="experience-background" aria-hidden="true">
+        <div class="experience-glow"></div>
+    </div>
+
+    <div class="container">
+        <header class="section-header">
+            <div>
+                <div class="section-kicker">
+                    <span>02</span>
+                    <span>تجربه</span>
+                </div>
+
+                <h2>
+                    تجربه‌ای که
+                    <br />
+                    در پروژه‌ها شکل گرفته است.
+                </h2>
+            </div>
+
+            <p class="section-description">
+                مسیر حرفه‌ای من بیشتر از عنوان‌ها، با مسئله‌هایی که حل کرده‌ام و
+                سیستم‌هایی که ساخته‌ام شکل گرفته است.
+            </p>
+        </header>
+
+        <div class="experience-list">
+            {
+                experiences.map((experience) => (
+                    <article class="experience-card">
+                        <div class="experience-top">
+                            <div class="experience-number">
+                                <span>{experience.number}</span>
+                            </div>
+
+                            <div class="experience-meta">
+                                <span class="period">{experience.period}</span>
+                                <span class="type">{experience.type}</span>
+                            </div>
+                        </div>
+
+                        <div class="experience-main">
+                            <div class="experience-title">
+                                <h3>{experience.role}</h3>
+                                <p>{experience.company}</p>
+                            </div>
+
+                            <div class="experience-body">
+                                <p class="experience-intro">
+                                    {experience.intro}
+                                </p>
+
+                                <ul class="experience-points">
+                                    {experience.points.map((point) => (
+                                        <li>
+                                            <span class="point-mark" />
+                                            <span>{point}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                {experience.project && (
+                                    <div class="experience-project">
+                                        <div class="project-label">
+                                            <span class="project-dot" />
+                                            <span>
+                                                {experience.project.label}
+                                            </span>
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                {experience.project.name}
+                                            </strong>
+                                            <p>
+                                                {experience.project.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div class="technology-list">
+                                    {experience.technologies.map(
+                                        (technology) => (
+                                            <span>{technology}</span>
+                                        ),
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+
+        <div class="side-projects">
+            <div class="side-project-heading">
+                <div class="mini-kicker">
+                    <span></span>
+                    <span>همکاری مستقل</span>
+                </div>
+
+                <p>
+                    در کنار تجربه اصلی، پروژه‌های مستقلی نیز در دوره‌های محدود
+                    زمانی انجام شده‌اند.
+                </p>
+            </div>
+
+            <div class="side-project-list">
+                {
+                    sideProjects.map((project) => (
+                        <article class="side-project">
+                            <div class="side-project-period">
+                                {project.period}
+                            </div>
+
+                            <div class="side-project-content">
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
+
+                                <div class="technology-list">
+                                    {project.stack.map((technology) => (
+                                        <span>{technology}</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <span class="side-project-arrow" aria-hidden="true">
+                                ↙
+                            </span>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .experience {
+        position: relative;
+        overflow: hidden;
+
+        padding-top: 8rem;
+        padding-bottom: 10rem;
+    }
+
+    .experience-background {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+    }
+
+    .experience-glow {
+        position: absolute;
+        top: 18rem;
+        right: -20rem;
+
+        width: 40rem;
+        height: 40rem;
+
+        background: radial-gradient(
+            circle,
+            rgba(94, 230, 168, 0.07),
+            transparent 68%
+        );
+
+        filter: blur(20px);
+    }
+
+    .section-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 22rem;
+        align-items: end;
+        gap: 4rem;
+
+        margin-bottom: 6rem;
+    }
+
+    .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        margin-bottom: 1.5rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .section-kicker > span:first-child {
+        display: grid;
+        place-items: center;
+
+        width: 1.7rem;
+        height: 1.7rem;
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.12);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.6rem;
+    }
+
+    .section-header h2 {
+        margin: 0;
+
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+    }
+
+    .section-description {
+        max-width: 20rem;
+
+        margin: 0;
+        padding-bottom: 0.4rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.78rem;
+        line-height: 2;
+    }
+
+    .experience-list {
+        border-top: 1px solid var(--color-border);
+    }
+
+    .experience-card {
+        position: relative;
+
+        padding: 2.5rem 0 3.5rem;
+
+        border-bottom: 1px solid var(--color-border);
+
+        transition:
+            padding 300ms ease,
+            background-color 300ms ease;
+    }
+
+    .experience-card::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        right: -2rem;
+        bottom: 0;
+        left: -2rem;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.018),
+            transparent
+        );
+
+        opacity: 0;
+
+        transition: opacity 300ms ease;
+
+        pointer-events: none;
+    }
+
+    .experience-card:hover::before {
+        opacity: 1;
+    }
+
+    .experience-top {
+        display: grid;
+        grid-template-columns: 5rem minmax(0, 1fr);
+
+        margin-bottom: 2rem;
+    }
+
+    .experience-number {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.65rem;
+    }
+
+    .experience-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .period {
+        color: var(--color-text);
+
+        font-family: monospace;
+        font-size: 0.68rem;
+    }
+
+    .type {
+        color: var(--color-text-muted);
+
+        font-size: 0.65rem;
+    }
+
+    .experience-main {
+        display: grid;
+        grid-template-columns: 19rem minmax(0, 1fr);
+        gap: 5rem;
+    }
+
+    .experience-title h3 {
+        margin: 0 0 0.75rem;
+
+        font-size: clamp(1.25rem, 2vw, 1.65rem);
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .experience-title p {
+        margin: 0;
+
+        color: var(--color-accent);
+
+        font-size: 0.75rem;
+        line-height: 1.7;
+    }
+
+    .experience-body {
+        max-width: 48rem;
+    }
+
+    .experience-intro {
+        max-width: 43rem;
+
+        margin: 0 0 1.75rem;
+
+        color: var(--color-text-secondary);
+
+        font-size: 0.88rem;
+        line-height: 2;
+    }
+
+    .experience-points {
+        display: grid;
+        gap: 0.85rem;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .experience-points li {
+        display: grid;
+        grid-template-columns: 0.5rem 1fr;
+        gap: 0.85rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.76rem;
+        line-height: 1.9;
+    }
+
+    .point-mark {
+        width: 0.3rem;
+        height: 0.3rem;
+
+        margin-top: 0.65rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+    }
+
+    .experience-project {
+        display: grid;
+        grid-template-columns: 8rem 1fr;
+        gap: 1.5rem;
+
+        margin-top: 2.25rem;
+        padding: 1.25rem;
+
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--color-border);
+        border-radius: 0.75rem;
+    }
+
+    .project-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        padding-top: 0.15rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.62rem;
+    }
+
+    .project-dot {
+        width: 0.4rem;
+        height: 0.4rem;
+
+        margin-top: 0.25rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(94, 230, 168, 0.08);
+    }
+
+    .experience-project strong {
+        display: block;
+
+        margin-bottom: 0.35rem;
+
+        font-size: 0.82rem;
+        font-weight: 600;
+    }
+
+    .experience-project p {
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.7rem;
+        line-height: 1.8;
+    }
+
+    .technology-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+
+        margin-top: 1.75rem;
+    }
+
+    .technology-list span {
+        padding: 0.4rem 0.65rem;
+
+        color: var(--color-text-muted);
+
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+
+        font-family: monospace;
+        font-size: 0.58rem;
+
+        transition:
+            color 200ms ease,
+            border-color 200ms ease,
+            background-color 200ms ease;
+    }
+
+    .technology-list span:hover {
+        color: var(--color-accent);
+
+        background: var(--color-accent-soft);
+        border-color: rgba(94, 230, 168, 0.18);
+    }
+
+    .side-projects {
+        display: grid;
+        grid-template-columns: 19rem minmax(0, 1fr);
+        gap: 5rem;
+
+        margin-top: 5rem;
+    }
+
+    .side-project-heading {
+        padding-top: 0.25rem;
+    }
+
+    .mini-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        margin-bottom: 1rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.65rem;
+    }
+
+    .mini-kicker > span:first-child {
+        width: 0.4rem;
+        height: 0.4rem;
+
+        background: var(--color-accent);
+        border-radius: 50%;
+    }
+
+    .side-project-heading p {
+        max-width: 15rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.7rem;
+        line-height: 1.9;
+    }
+
+    .side-project-list {
+        border-top: 1px solid var(--color-border);
+    }
+
+    .side-project {
+        display: grid;
+        grid-template-columns: 7rem minmax(0, 1fr) 2rem;
+        gap: 2rem;
+        align-items: start;
+
+        padding: 1.5rem 0;
+
+        border-bottom: 1px solid var(--color-border);
+
+        transition: padding 250ms ease;
+    }
+
+    .side-project:hover {
+        padding-right: 0.75rem;
+    }
+
+    .side-project-period {
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.58rem;
+    }
+
+    .side-project-content h3 {
+        margin: 0 0 0.5rem;
+
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .side-project-content p {
+        max-width: 38rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.7rem;
+        line-height: 1.9;
+    }
+
+    .side-project-content .technology-list {
+        margin-top: 1rem;
+    }
+
+    .side-project-content .technology-list span {
+        padding: 0.3rem 0.5rem;
+
+        font-size: 0.52rem;
+    }
+
+    .side-project-arrow {
+        color: var(--color-accent);
+
+        font-size: 1rem;
+
+        transition: transform 250ms ease;
+    }
+
+    .side-project:hover .side-project-arrow {
+        transform: translate(-0.2rem, 0.2rem);
+    }
+
+    @media (max-width: 900px) {
+        .experience {
+            padding-top: 6rem;
+            padding-bottom: 7rem;
+        }
+
+        .section-header {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+
+            margin-bottom: 4rem;
+        }
+
+        .section-description {
+            max-width: 32rem;
+        }
+
+        .experience-main {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .side-projects {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .side-project-heading p {
+            max-width: 30rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .experience {
+            padding-top: 5rem;
+            padding-bottom: 6rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+        }
+
+        .experience-card {
+            padding: 2rem 0 2.5rem;
+        }
+
+        .experience-top {
+            grid-template-columns: 2rem 1fr;
+        }
+
+        .experience-meta {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .experience-intro {
+            font-size: 0.82rem;
+        }
+
+        .experience-points li {
+            font-size: 0.72rem;
+        }
+
+        .experience-project {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .side-project {
+            grid-template-columns: 1fr 1.5rem;
+            gap: 0.75rem;
+        }
+
+        .side-project-period {
+            grid-column: 1 / -1;
+        }
+
+        .side-project-content {
+            grid-column: 1;
+        }
+
+        .side-project-arrow {
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+</style>

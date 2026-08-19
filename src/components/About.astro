@@ -1,0 +1,569 @@
+---
+const highlights = [
+    {
+        number: "01",
+        title: "Full-Stack",
+        text: "از طراحی و توسعه Backend و Frontend تا کار با دیتابیس و زیرساخت.",
+    },
+    {
+        number: "02",
+        title: "Systems",
+        text: "تمرکز بر معماری نرم‌افزار، SaaS، Multi-Tenant و جداسازی امن داده‌ها.",
+    },
+    {
+        number: "03",
+        title: "Product",
+        text: "تجربه ساخت و توسعه محصولات واقعی، از ایده و MVP تا نگهداری و توسعه.",
+    },
+];
+
+const timeline = [
+    {
+        year: "۱۳۹۱",
+        title: "شروع برنامه‌نویسی",
+        text: "شروع آشنایی با برنامه‌نویسی و ساخت پروژه‌های شخصی و دانش‌آموزی.",
+    },
+    {
+        year: "۱۳۹۳",
+        title: "مهندسی مکانیک",
+        text: "تحصیل مهندسی مکانیک در دانشگاه جیرفت و ادامه جدی برنامه‌نویسی در کنار تحصیل.",
+    },
+    {
+        year: "۱۳۹۹",
+        title: "تجربه حرفه‌ای",
+        text: "شروع فعالیت حرفه‌ای در تیم توسعه نرم‌افزار و رشد از Frontend به Full-Stack.",
+    },
+    {
+        year: "۱۴۰۱",
+        title: "ساخت محصولات مستقل",
+        text: "توسعه پروژه‌های شخصی و تجربه ساخت محصولات واقعی در کنار فعالیت حرفه‌ای.",
+    },
+    {
+        year: "۱۴۰۵",
+        title: "Attariyar",
+        text: "تمرکز بر ساخت یک محصول SaaS و توسعه معماری Multi-Tenant.",
+    },
+];
+---
+
+<section class="about section" id="about">
+    <div class="about-background" aria-hidden="true">
+        <div class="about-grid"></div>
+    </div>
+
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-kicker">
+                <span>01</span>
+                <span>درباره من</span>
+            </div>
+
+            <h2>
+                ساختن نرم‌افزار،
+                <br />
+                فراتر از نوشتن کد است.
+            </h2>
+        </div>
+
+        <div class="about-intro">
+            <div class="about-intro-label">
+                <span class="intro-line"></span>
+                <span>مسیر حرفه‌ای</span>
+            </div>
+
+            <div class="about-intro-content">
+                <p class="about-lead">
+                    من علی طغرلی، مهندس نرم‌افزار Full-Stack هستم و تمرکزم روی
+                    طراحی و توسعه سیستم‌هایی است که بتوانند در طول زمان توسعه
+                    پیدا کنند و قابل نگهداری باقی بمانند.
+                </p>
+
+                <p>
+                    مسیر من از پروژه‌های کوچک برنامه‌نویسی در دوران مدرسه شروع
+                    شد و در کنار تحصیل مهندسی مکانیک ادامه پیدا کرد. از سال ۱۳۹۹
+                    وارد تجربه حرفه‌ای توسعه نرم‌افزار شدم و در ادامه، در کنار
+                    تجربه تیمی، روی پروژه‌ها و محصولات مستقل نیز کار کردم.
+                </p>
+
+                <p>
+                    امروز تمرکز اصلی من روی ساخت سیستم‌های SaaS و Multi-Tenant
+                    است؛ جایی که معماری، امنیت، دیتابیس و تجربه کاربر باید در
+                    کنار هم یک محصول قابل اتکا بسازند.
+                </p>
+            </div>
+        </div>
+
+        <div class="highlights">
+            {
+                highlights.map((item) => (
+                    <article class="highlight">
+                        <span class="highlight-number">{item.number}</span>
+
+                        <div class="highlight-content">
+                            <h3>{item.title}</h3>
+                            <p>{item.text}</p>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+
+        <div class="timeline-section">
+            <div class="timeline-heading">
+                <span class="section-kicker">
+                    <span>مسیر</span>
+                </span>
+
+                <p>
+                    مسیر یادگیری و تجربه من به‌صورت تدریجی از برنامه‌نویسی اولیه
+                    به توسعه سیستم‌های نرم‌افزاری رسیده است.
+                </p>
+            </div>
+
+            <div class="timeline">
+                {
+                    timeline.map((item, index) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <span>{item.year}</span>
+                            </div>
+
+                            <div class="timeline-line" />
+
+                            <div class="timeline-content">
+                                <span class="timeline-index">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                <h3>{item.title}</h3>
+
+                                <p>{item.text}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about {
+        position: relative;
+        overflow: hidden;
+
+        padding-top: 8rem;
+        padding-bottom: 10rem;
+    }
+
+    .about-background {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+    }
+
+    .about-grid {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+
+        width: 50rem;
+        height: 50rem;
+
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.018) 1px,
+                transparent 1px
+            );
+
+        background-size: 3rem 3rem;
+
+        mask-image: radial-gradient(circle, black, transparent 70%);
+
+        transform: translateX(-10%);
+    }
+
+    .section-heading {
+        max-width: 52rem;
+
+        margin-bottom: 6rem;
+    }
+
+    .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        margin-bottom: 1.5rem;
+
+        color: var(--color-accent);
+
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+
+    .section-kicker > span:first-child {
+        display: grid;
+        place-items: center;
+
+        width: 1.7rem;
+        height: 1.7rem;
+
+        background: var(--color-accent-soft);
+        border: 1px solid rgba(94, 230, 168, 0.12);
+        border-radius: 0.45rem;
+
+        font-family: monospace;
+        font-size: 0.6rem;
+    }
+
+    .section-heading h2 {
+        margin: 0;
+
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+    }
+
+    .about-intro {
+        display: grid;
+        grid-template-columns: 15rem minmax(0, 1fr);
+        gap: 4rem;
+
+        max-width: 68rem;
+
+        margin-bottom: 6rem;
+    }
+
+    .about-intro-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+
+        padding-top: 0.55rem;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.7rem;
+    }
+
+    .intro-line {
+        display: block;
+
+        width: 1.5rem;
+        height: 1px;
+
+        margin-top: 0.5rem;
+
+        background: var(--color-accent);
+    }
+
+    .about-intro-content {
+        max-width: 48rem;
+    }
+
+    .about-intro-content p {
+        margin: 0 0 1.25rem;
+
+        color: var(--color-text-secondary);
+
+        font-size: 0.95rem;
+        line-height: 2;
+    }
+
+    .about-intro-content p:last-child {
+        margin-bottom: 0;
+    }
+
+    .about-intro-content .about-lead {
+        margin-bottom: 1.5rem;
+
+        color: var(--color-text);
+
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        line-height: 1.8;
+    }
+
+    .highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+
+        margin-bottom: 9rem;
+    }
+
+    .highlight {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+
+        padding: 2rem 1.5rem;
+
+        border-left: 1px solid var(--color-border);
+    }
+
+    .highlight:first-child {
+        padding-right: 0;
+    }
+
+    .highlight:last-child {
+        border-left: 0;
+        padding-left: 0;
+    }
+
+    .highlight-number {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.58rem;
+    }
+
+    .highlight h3 {
+        margin: 0 0 0.65rem;
+
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .highlight p {
+        max-width: 18rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.75rem;
+        line-height: 1.9;
+    }
+
+    .timeline-section {
+        display: grid;
+        grid-template-columns: 18rem minmax(0, 1fr);
+        gap: 5rem;
+    }
+
+    .timeline-heading {
+        position: sticky;
+        top: 7rem;
+
+        align-self: start;
+    }
+
+    .timeline-heading p {
+        max-width: 14rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.75rem;
+        line-height: 1.9;
+    }
+
+    .timeline {
+        position: relative;
+
+        padding-right: 2rem;
+    }
+
+    .timeline::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        right: 0.55rem;
+        bottom: 0;
+
+        width: 1px;
+
+        background: linear-gradient(
+            to bottom,
+            var(--color-accent),
+            var(--color-border) 20%,
+            var(--color-border) 80%,
+            transparent
+        );
+    }
+
+    .timeline-item {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 5rem minmax(0, 1fr);
+        gap: 2rem;
+
+        min-height: 9rem;
+
+        padding-bottom: 2rem;
+    }
+
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-marker {
+        position: relative;
+
+        z-index: 2;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        padding-top: 0.15rem;
+    }
+
+    .timeline-marker::after {
+        content: "";
+
+        position: absolute;
+        top: 0.4rem;
+        right: -1.55rem;
+
+        width: 0.55rem;
+        height: 0.55rem;
+
+        background: var(--color-bg);
+        border: 1px solid var(--color-accent);
+        border-radius: 50%;
+
+        box-shadow: 0 0 0 4px var(--color-bg);
+    }
+
+    .timeline-marker span {
+        color: var(--color-accent);
+
+        font-family: monospace;
+        font-size: 0.65rem;
+    }
+
+    .timeline-content {
+        padding-bottom: 1.5rem;
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .timeline-item:last-child .timeline-content {
+        border-bottom: 0;
+    }
+
+    .timeline-index {
+        display: block;
+
+        margin-bottom: 0.75rem;
+
+        color: var(--color-text-muted);
+
+        font-family: monospace;
+        font-size: 0.55rem;
+    }
+
+    .timeline-content h3 {
+        margin: 0 0 0.55rem;
+
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .timeline-content p {
+        max-width: 35rem;
+
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.75rem;
+        line-height: 1.9;
+    }
+
+    @media (max-width: 900px) {
+        .about {
+            padding-top: 6rem;
+            padding-bottom: 7rem;
+        }
+
+        .section-heading {
+            margin-bottom: 4rem;
+        }
+
+        .about-intro {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            margin-bottom: 4rem;
+        }
+
+        .highlights {
+            grid-template-columns: 1fr;
+
+            margin-bottom: 6rem;
+        }
+
+        .highlight,
+        .highlight:first-child,
+        .highlight:last-child {
+            grid-template-columns: 2rem 1fr;
+
+            padding: 1.5rem 0;
+
+            border-left: 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .highlight:last-child {
+            border-bottom: 0;
+        }
+
+        .timeline-section {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .timeline-heading {
+            position: static;
+        }
+
+        .timeline-heading p {
+            max-width: 30rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .about {
+            padding-top: 5rem;
+            padding-bottom: 6rem;
+        }
+
+        .section-heading h2 {
+            font-size: 2.35rem;
+        }
+
+        .about-intro-content .about-lead {
+            font-size: 1.15rem;
+        }
+
+        .about-intro-content p {
+            font-size: 0.88rem;
+        }
+
+        .timeline {
+            padding-right: 1.5rem;
+        }
+
+        .timeline-item {
+            grid-template-columns: 4rem minmax(0, 1fr);
+            gap: 1rem;
+        }
+
+        .timeline-marker::after {
+            right: -1.25rem;
+        }
+    }
+</style>
